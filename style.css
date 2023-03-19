@@ -6,13 +6,24 @@
 
 :root {
     font-size: 62.5%;
+
+    --bg-color: #323238;
+
+    --time-color: #000000;
+    --controls-coler: #000000;
+    --controls-hover-color: #02799D;
+
+    --sound-color: #E1E1E6;
+    --sound-focus-color: #02799D;
+    --sound-focus-icon-color: #000000;
 }
 
 body {
     display: flex;
-    align-items: center;
     justify-content: center;
     min-height: 100vh;
+
+    background-color: var(--bg-color);
 }
 
 main {
@@ -26,7 +37,7 @@ main {
 
     font-family: 'Roboto', sans-serif;
     font-size: 12.6rem;
-    color: #323238;
+    color: var(--time-color);
 
     margin-bottom: 2rem;
 }
@@ -41,33 +52,37 @@ main {
     background-color: transparent;
 }
 
+.controls button svg path {
+    fill: var(--controls-coler);
+}
+
+.controls button:hover svg path {
+    fill: var(--controls-hover-color);
+}
+
+.hide {
+    display: none;
+}
+
 .sons {
     display: grid;
     gap: 3.2rem;
     grid-template-columns: repeat(2, 1fr);
-    align-items: center;
-    justify-items: center;
 }
 
 .sons button {
-    background-color: #E1E1E6;
+    background-color: var(--sound-color);
     border-radius: 2.4rem;
+    border: none;
 
     padding: 4.8rem 4.4rem;
+    width: 13.8rem;
+
     cursor: pointer;
-
-    border: none;
 }
 
-.sons button:focus {
-    background-color: #02799D;
-}
-
-.forest:focus svg path,
-.rain:focus svg path,
-.coffeeShop:focus svg path,
-.fireplace:focus svg path {
-    fill: white;
+.sons button.selected {
+    background-color: var(--sound-focus-color);
 }
 
 @media (max-width: 850px) {
